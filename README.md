@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ CertAI
+
+AI-powered electrical certification for UK electricians. Upload a photo of your consumer unit or paste your handwritten notes — get a BS 7671 compliant EICR in minutes, not hours.
+
+## What it does
+
+1. **Upload** — Snap a photo of the board or type your inspection notes
+2. **AI Extract** — Claude Vision reads the image and extracts circuit data, supply details, and observations
+3. **Review** — Pre-filled EICR form for you to check and edit
+4. **Download** — Generate a compliant PDF certificate
+
+## Why
+
+Electricians spend 45-60 minutes manually typing inspection data into certification software after every job. CertAI cuts that to under 5 minutes.
+
+## Tech Stack
+
+- **Next.js 14** — React framework
+- **Tailwind CSS** — Styling
+- **Claude API** (Anthropic) — AI-powered board analysis & note parsing
+- **React PDF** — Certificate generation
+- **TypeScript** — Type safety throughout
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- An [Anthropic API key](https://console.anthropic.com)
+
+### Setup
+
+```bash
+git clone https://github.com/AnasInno/certai.git
+cd certai
+npm install
+cp .env.local.example .env.local
+```
+
+Edit `.env.local` and add your Anthropic API key:
+
+```
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+### Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Roadmap
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [x] Board photo upload + AI extraction
+- [x] EICR form with pre-filled fields
+- [x] PDF certificate generation
+- [ ] BS 7671 validation engine (Zs limits, IR, RCD checks)
+- [ ] Text/handwritten notes parsing
+- [ ] EIC & Minor Works certificates
+- [ ] User auth + certificate storage
+- [ ] Multi-user collaboration
+- [ ] Supabase backend
 
-## Learn More
+## Cost
 
-To learn more about Next.js, take a look at the following resources:
+~5p per certificate (one Claude API call). No subscription required to self-host.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MIT
 
-## Deploy on Vercel
+## Built by
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Anas Abdi](https://github.com/AnasInno) — with help from [OpenClaw](https://openclaw.ai)
